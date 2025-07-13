@@ -1,7 +1,11 @@
-/* styles.css */
+/* General Reset */
+body, h1, h2, p, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    margin: 0;
     font-family: 'Inter', sans-serif;
     background-color: #0d1117;
     color: #c9d1d9;
@@ -88,3 +92,19 @@ nav a:hover {
     padding-top: 1rem;
 }
 
+/* Estilos para el formulario */
+form input,
+form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #30363d;
+    background-color: #0d1117;
+    color: #c9d1d9;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #58a6ff;
+}
