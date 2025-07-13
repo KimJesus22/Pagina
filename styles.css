@@ -119,4 +119,34 @@ form textarea:focus {
 .lang-switch:hover {
     color: #58a6ff;
 }
+/* Botón con efecto hover */
+.btn {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #2ea043;
+    transform: scale(1.05);
+}
+
+/* Tarjetas con sombra y escala al pasar el mouse */
+.card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 20px rgba(35, 134, 54, 0.4);
+    transform: translateY(-5px);
+}
+
+/* Navegación con efecto al pasar el mouse */
+nav a {
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+    color: #58a6ff;
+    border-bottom: 2px solid #58a6ff;
+}
 
