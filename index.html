@@ -7,73 +7,157 @@
     <meta name="keywords" content="Ciberseguridad, Ethical Hacking, José Cerón, Portafolio, Seguridad Informática">
     <meta name="author" content="José de Jesús Cerón López">
     <title>Portfolio - José de Jesús Cerón López</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        header, nav, section, footer {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+        header {
+            text-align: center;
+            border-bottom: 1px solid #30363d;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #58a6ff;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            background-color: #161b22;
+            border-top: 1px solid #30363d;
+            border-bottom: 1px solid #30363d;
+        }
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        nav a:hover {
+            color: #58a6ff;
+        }
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        .card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #238636;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #2ea043;
+        }
+        .section h2 {
+            color: #58a6ff;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #8b949e;
+            border-top: 1px solid #30363d;
+            margin-top: 3rem;
+            padding-top: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
+    <header>
         <h1>José de Jesús Cerón López</h1>
         <p>Estudiante de Ciberseguridad y Ethical Hacking</p>
     </header>
-    <nav class="nav">
-        <a href="#about" aria-label="Sobre Mí">Sobre Mí</a>
-        <a href="#projects" aria-label="Proyectos">Proyectos</a>
-        <a href="#certifications" aria-label="Certificaciones">Certificaciones</a>
-        <a href="#contact" aria-label="Contacto">Contacto</a>
+
+    <nav>
+        <a href="#about">Sobre Mí</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#certifications">Certificaciones</a>
+        <a href="#contact">Contacto</a>
     </nav>
-    <main class="container">
-        <section id="about" class="section about">
+
+    <main>
+        <section id="about" class="section">
             <h2>Sobre Mí</h2>
-            <p>Estudiante apasionado por la ciberseguridad, especializado en técnicas de ethical hacking y análisis de vulnerabilidades. Estoy en constante aprendizaje y busco oportunidades para aplicar mis conocimientos en entornos profesionales.</p>
+            <p>Estudiante apasionado por la ciberseguridad, especializado en técnicas de ethical hacking, análisis de vulnerabilidades, y respuesta ante incidentes. Busco aplicar mis habilidades en entornos profesionales y continuar desarrollándome en áreas como análisis forense digital, OSINT y pruebas de penetración.</p>
         </section>
-        <section id="projects" class="section projects">
+
+        <section id="projects" class="section">
             <h2>Proyectos</h2>
             <div class="grid">
-                <div class="card project">
+                <div class="card">
                     <h3>Informe de Auditoría: Reto ROBOT</h3>
-                    <p>Análisis de vulnerabilidades críticas y recomendaciones de seguridad. Herramientas utilizadas: Nmap, Gobuster, WPScan.</p>
-                   <a href="https://kimjesus22.github.io/Pagina/Informe%20de%20reto%20Robot%20Jesus_Ceron.pdf" class="btn" download>Descargar Informe</a>
-                    <div class="card project">
-    <h3>Audit Report: Alfred Challenge</h3>
-    <p>Analysis of critical vulnerabilities and security recommendations. Tools used: Nmap, Netcat, Metasploit, Incognito.</p>
-    <a href="https://kimjesus22.github.io/Pagina/Tarea%208%20Jesus_Ceron.pdf" class="btn" download>Download Report</a>
-</div>
- </div>
-                <div class="card project">
-                    <h3>Plataforma TryHackMe</h3>
-                    <p>Resolución de más de 30 máquinas virtuales, con enfoque en vulnerabilidades web y escalamiento de privilegios.</p>
+                    <p>Análisis de vulnerabilidades críticas con herramientas como Nmap, Gobuster y WPScan.</p>
+                    <a href="https://kimjesus22.github.io/Pagina/Informe%20de%20reto%20Robot%20Jesus_Ceron.pdf" class="btn" download><i class="fas fa-file-download"></i> Descargar Informe</a>
                 </div>
-                <div class="card project">
+                <div class="card">
+                    <h3>Audit Report: Alfred Challenge</h3>
+                    <p>Exploración de fallas de seguridad usando Netcat, Metasploit e Incognito.</p>
+                    <a href="https://kimjesus22.github.io/Pagina/Tarea%208%20Jesus_Ceron.pdf" class="btn" download><i class="fas fa-file-download"></i> Download Report</a>
+                </div>
+                <div class="card">
+                    <h3>Plataforma TryHackMe</h3>
+                    <p>Resolución de más de 30 máquinas centradas en vulnerabilidades web y escalamiento de privilegios.</p>
+                </div>
+                <div class="card">
                     <h3>Hack The Box</h3>
-                    <p>Participación activa en desafíos técnicos, desarrollando habilidades avanzadas en hacking ético y análisis de sistemas.</p>
+                    <p>Participación activa en desafíos técnicos, fortaleciendo habilidades en hacking ético y análisis de sistemas.</p>
                 </div>
             </div>
         </section>
-        <section id="certifications" class="section certifications">
+
+        <section id="certifications" class="section">
             <h2>Certificaciones</h2>
             <div class="grid">
-                <div class="card certification">
-                    <h3>Certified Ethical Hacker Practical Certification (CEHPC)</h3>
-                    <p>Emitido en 2024</p>
+                <div class="card">
+                    <h3>CEH Practical - Certified Ethical Hacker</h3>
+                    <p>Emitido en 2024 por EC-Council.</p>
                 </div>
-                <div class="card certification">
-                    <h3>ISO 27001: Sistemas de Gestión de Seguridad de la Información</h3>
-                    <p>Emitido en 2024</p>
+                <div class="card">
+                    <h3>ISO 27001 - Seguridad de la Información</h3>
+                    <p>Emitido en 2024.</p>
                 </div>
-                <div class="card certification">
+                <div class="card">
                     <h3>Google IT Support</h3>
-                    <p>Emitido en 2023</p>
+                    <p>Fundamentos de redes, sistemas y soporte técnico - Emitido en 2023.</p>
                 </div>
             </div>
         </section>
-        <section id="contact" class="section contact">
+
+        <section id="contact" class="section">
             <h2>Contacto</h2>
-            <p>Email: <a href="mailto:joseceron685@gmail.com">joseceron685@gmail.com</a></p>
-            <p>Teléfono: 411-144-1791</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/jose-de-jesus-ceron-lopez-33054521b" target="_blank" rel="noopener">linkedin.com/in/jose-de-jesus-ceron-lopez</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:joseceron685@gmail.com">joseceron685@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> 411-144-1791</p>
+            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/jose-de-jesus-ceron-lopez-33054521b" target="_blank">LinkedIn</a></p>
         </section>
     </main>
+
     <footer class="footer">
         <p>&copy; 2024 José de Jesús Cerón López. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
+
