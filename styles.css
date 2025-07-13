@@ -108,3 +108,15 @@ form textarea:focus {
     outline: none;
     border-color: #58a6ff;
 }
+
+/* Estilos para el botón de cambio de idioma */
+.lang-switch {
+    color: #c9d1d9;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.lang-switch:hover {
+    color: #58a6ff;
+}
+
