@@ -9,103 +9,28 @@
     <title>Portfolio - José de Jesús Cerón López</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            line-height: 1.6;
-        }
-        header, nav, section, footer {
-            padding: 2rem;
-            max-width: 1000px;
-            margin: auto;
-        }
-        header {
-            text-align: center;
-            border-bottom: 1px solid #30363d;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            color: #58a6ff;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            background-color: #161b22;
-            border-top: 1px solid #30363d;
-            border-bottom: 1px solid #30363d;
-        }
-        nav a {
-            color: #c9d1d9;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        nav a:hover {
-            color: #58a6ff;
-        }
-        .grid {
-            display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-        .card {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.2s ease-in-out;
-        }
-        .card:hover {
-            transform: scale(1.02);
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 0.5rem;
-            padding: 0.5rem 1rem;
-            background-color: #238636;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .btn:hover {
-            background-color: #2ea043;
-        }
-        .section h2 {
-            color: #58a6ff;
-        }
-        .footer {
-            text-align: center;
-            font-size: 0.9rem;
-            color: #8b949e;
-            border-top: 1px solid #30363d;
-            margin-top: 3rem;
-            padding-top: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="header">
         <h1>José de Jesús Cerón López</h1>
         <p>Estudiante de Ciberseguridad y Ethical Hacking</p>
     </header>
 
-    <nav>
+    <nav class="nav">
         <a href="#about">Sobre Mí</a>
         <a href="#projects">Proyectos</a>
         <a href="#certifications">Certificaciones</a>
         <a href="#contact">Contacto</a>
     </nav>
 
-    <main>
-        <section id="about" class="section">
+    <main class="container">
+        <section id="about" class="section about">
             <h2>Sobre Mí</h2>
             <p>Estudiante apasionado por la ciberseguridad, especializado en técnicas de ethical hacking, análisis de vulnerabilidades, y respuesta ante incidentes. Busco aplicar mis habilidades en entornos profesionales y continuar desarrollándome en áreas como análisis forense digital, OSINT y pruebas de penetración.</p>
         </section>
 
-        <section id="projects" class="section">
+        <section id="projects" class="section projects">
             <h2>Proyectos</h2>
             <div class="grid">
                 <div class="card">
@@ -129,7 +54,7 @@
             </div>
         </section>
 
-        <section id="certifications" class="section">
+        <section id="certifications" class="section certifications">
             <h2>Certificaciones</h2>
             <div class="grid">
                 <div class="card">
@@ -147,12 +72,21 @@
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <h2>Contacto</h2>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:joseceron685@gmail.com">joseceron685@gmail.com</a></p>
-            <p><i class="fas fa-phone"></i> 411-144-1791</p>
-            <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/jose-de-jesus-ceron-lopez-33054521b" target="_blank">LinkedIn</a></p>
-        </section>
+        <section id="contact" class="section contact">
+  <h2>Contacto</h2>
+  <form action="https://formspree.io/f/movlawng" method="POST">
+    <label for="name">Nombre:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Correo Electrónico:</label><br>
+    <input type="email" id="email" name="_replyto" required><br><br>
+
+    <label for="message">Mensaje:</label><br>
+    <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+    <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Enviar</button>
+  </form>
+</section>
     </main>
 
     <footer class="footer">
@@ -160,4 +94,5 @@
     </footer>
 </body>
 </html>
+
 
