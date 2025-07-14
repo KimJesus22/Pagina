@@ -9,6 +9,7 @@
     <title>Portfolio - José de Jesús Cerón López</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,24 +19,24 @@
     </header>
 
     <nav class="nav">
-    <button class="menu-toggle" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
-    </button>
-    <a href="#about">Sobre Mí</a>
-    <a href="#cv">Mi CV</a>
-    <a href="#projects">Proyectos</a>
-    <a href="#certifications">Certificaciones</a>
-    <a href="#contact">Contacto</a>
-    <a href="index-en.html" class="lang-switch"><i class="fas fa-globe"></i> English</a>
-</nav>
+        <button class="menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <a href="#about">Sobre Mí</a>
+        <a href="#cv">Mi CV</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#certifications">Certificaciones</a>
+        <a href="#contact">Contacto</a>
+        <a href="index-en.html" class="lang-switch"><i class="fas fa-globe"></i> English</a>
+    </nav>
 
     <main class="container">
-        <section id="about" class="section about">
+        <section id="about" class="section about" data-aos="fade-up">
             <h2>Sobre Mí</h2>
             <p>Estudiante apasionado por la ciberseguridad, especializado en técnicas de ethical hacking y análisis de vulnerabilidades. Estoy en constante aprendizaje y busco oportunidades para aplicar mis conocimientos en entornos profesionales.</p>
         </section>
 
-        <section id="cv" class="section cv">
+        <section id="cv" class="section cv" data-aos="fade-up">
             <h2>Mi CV</h2>
             <p>Descarga mi currículum en formato PDF para más detalles sobre mi experiencia y formación.</p>
             <a href="https://github.com/KimJesus22/Pagina/raw/main/C.V.%20Jesu%CC%81s%20Cero%CC%81n%20.pdf" class="btn" download target="_blank" rel="noopener noreferrer">
@@ -43,7 +44,7 @@
             </a>
         </section>
 
-        <section id="projects" class="section projects">
+        <section id="projects" class="section projects" data-aos="fade-up">
             <h2>Proyectos</h2>
             <div class="grid">
                 <div class="card project">
@@ -64,20 +65,20 @@
                     <h3>Hack The Box</h3>
                     <p>Participación activa en desafíos técnicos, desarrollando habilidades avanzadas en hacking ético y análisis de sistemas.</p>
                 </div>
-</div><div class="card project">
-  <h3>Amigo Secreto</h3>
-  <p>Aplicación web que permite gestionar sorteos de amigo secreto de forma sencilla. Creado con HTML, CSS y JavaScript.</p>
-  <a href="https://kimjesus22.github.io/Amigo-Secreto/" class="btn" target="_blank" rel="noopener noreferrer">
-    <i class="fas fa-globe"></i> Ver Página
-  </a>
-  <a href="https://github.com/KimJesus22/Amigo-Secreto" class="btn" target="_blank" rel="noopener noreferrer">
-    <i class="fab fa-github"></i> Ver Repositorio
-  </a>
-</div>
-
+                <div class="card project">
+                    <h3>Amigo Secreto</h3>
+                    <p>Aplicación web que permite gestionar sorteos de amigo secreto de forma sencilla. Creado con HTML, CSS y JavaScript.</p>
+                    <a href="https://kimjesus22.github.io/Amigo-Secreto/" class="btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-globe"></i> Ver Página
+                    </a>
+                    <a href="https://github.com/KimJesus22/Amigo-Secreto" class="btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i> Ver Repositorio
+                    </a>
+                </div>
+            </div>
         </section>
 
-        <section id="certifications" class="section certifications">
+        <section id="certifications" class="section certifications" data-aos="fade-up">
             <h2>Certificaciones</h2>
             <div class="grid">
                 <div class="card certification">
@@ -95,7 +96,7 @@
             </div>
         </section>
 
-        <section id="contact" class="section contact">
+        <section id="contact" class="section contact" data-aos="fade-up">
             <h2>Contacto</h2>
             <form action="https://formspree.io/f/movlawng" method="POST">
                 <label for="name">Nombre:</label><br />
@@ -115,9 +116,19 @@
     <footer class="footer">
         <p>&copy; 2024 José de Jesús Cerón López. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true
+      });
+    </script>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
+
 </html>
+
 
 
 
