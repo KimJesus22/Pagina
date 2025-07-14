@@ -1,4 +1,4 @@
-/* General Reset */
+/* Reset General */
 body, h1, h2, p, a {
     margin: 0;
     padding: 0;
@@ -12,12 +12,14 @@ body {
     line-height: 1.6;
 }
 
+/* Contenedores */
 header, nav, section, footer {
     padding: 2rem;
     max-width: 1000px;
     margin: auto;
 }
 
+/* Encabezado */
 header {
     text-align: center;
     border-bottom: 1px solid #30363d;
@@ -28,6 +30,7 @@ header h1 {
     color: #58a6ff;
 }
 
+/* Navegación */
 nav {
     display: flex;
     justify-content: center;
@@ -41,30 +44,47 @@ nav a {
     color: #c9d1d9;
     text-decoration: none;
     font-weight: 600;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
 }
 
 nav a:hover {
     color: #58a6ff;
+    border-bottom: 2px solid #58a6ff;
 }
 
+/* Botón hamburguesa */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #c9d1d9;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* Grid general */
 .grid {
     display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
+/* Tarjetas */
 .card {
     background-color: #161b22;
     border: 1px solid #30363d;
     border-radius: 8px;
     padding: 1.5rem;
-    transition: transform 0.2s ease-in-out;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(35, 134, 54, 0.4);
 }
 
+/* Botones */
 .btn {
     display: inline-block;
     margin-top: 0.5rem;
@@ -73,16 +93,20 @@ nav a:hover {
     color: white;
     border-radius: 5px;
     text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
     background-color: #2ea043;
+    transform: scale(1.05);
 }
 
+/* Títulos */
 .section h2 {
     color: #58a6ff;
 }
 
+/* Pie de página */
 .footer {
     text-align: center;
     font-size: 0.9rem;
@@ -92,7 +116,7 @@ nav a:hover {
     padding-top: 1rem;
 }
 
-/* Estilos para el formulario */
+/* Formularios */
 form input,
 form textarea {
     width: 100%;
@@ -109,7 +133,7 @@ form textarea:focus {
     border-color: #58a6ff;
 }
 
-/* Estilos para el botón de cambio de idioma */
+/* Cambio de idioma */
 .lang-switch {
     color: #c9d1d9;
     font-weight: 600;
@@ -119,50 +143,13 @@ form textarea:focus {
 .lang-switch:hover {
     color: #58a6ff;
 }
-/* Botón con efecto hover */
-.btn {
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
 
-.btn:hover {
-    background-color: #2ea043;
-    transform: scale(1.05);
-}
-
-/* Tarjetas con sombra y escala al pasar el mouse */
-.card {
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.card:hover {
-    box-shadow: 0 10px 20px rgba(35, 134, 54, 0.4);
-    transform: translateY(-5px);
-}
-
-/* Navegación con efecto al pasar el mouse */
-nav a {
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-    border-bottom: 2px solid transparent;
-}
-
-nav a:hover {
-    color: #58a6ff;
-    border-bottom: 2px solid #58a6ff;
-}
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: #c9d1d9;
-    font-size: 1.8rem;
-    cursor: pointer;
-}
-
-/* Responsive para pantallas pequeñas */
+/* Responsive para móviles */
 @media (max-width: 768px) {
     nav {
         flex-wrap: wrap;
     }
+
     nav a {
         display: none;
         width: 100%;
@@ -170,13 +157,53 @@ nav a:hover {
         padding: 1rem 0;
         border-top: 1px solid #30363d;
     }
+
     nav a.show {
         display: block;
     }
+
     .menu-toggle {
         display: block;
         margin-left: auto;
     }
 }
+
+/* ===================== */
+/* AOS: Animación Scroll */
+/* ===================== */
+
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+/* Personalización opcional para efectos */
+[data-aos="fade-up"] {
+    transform: translateY(20px);
+}
+
+[data-aos="fade-down"] {
+    transform: translateY(-20px);
+}
+
+[data-aos="fade-left"] {
+    transform: translateX(-20px);
+}
+
+[data-aos="fade-right"] {
+    transform: translateX(20px);
+}
+
+[data-aos].aos-animate[data-aos="fade-up"],
+[data-aos].aos-animate[data-aos="fade-down"],
+[data-aos].aos-animate[data-aos="fade-left"],
+[data-aos].aos-animate[data-aos="fade-right"] {
+    transform: translate(0);
+}
+
 
 
