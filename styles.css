@@ -1,3 +1,22 @@
+/* === MEJORAS APLICADAS ===
+1. Variables CSS (Custom Properties) para fácil mantenimiento y temas.
+2. Estados :focus para mejorar la accesibilidad en la navegación con teclado.
+3. Unidades relativas (rem) para un escalado más consistente.
+============================ */
+
+:root {
+    --bg-color: #0d1117;
+    --primary-surface-color: #161b22;
+    --border-color: #30363d;
+    --text-color: #c9d1d9;
+    --text-muted-color: #8b949e;
+    --accent-color: #58a6ff;
+    --success-color: #238636;
+    --success-hover-color: #2ea043;
+    --shadow-color: rgba(35, 134, 54, 0.4);
+    --main-font: 'Inter', sans-serif;
+}
+
 /* Reset General */
 body, h1, h2, p, a {
     margin: 0;
@@ -6,9 +25,9 @@ body, h1, h2, p, a {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #0d1117;
-    color: #c9d1d9;
+    font-family: var(--main-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
 }
 
@@ -22,12 +41,12 @@ header, nav, section, footer {
 /* Encabezado */
 header {
     text-align: center;
-    border-bottom: 1px solid #30363d;
+    border-bottom: 1px solid var(--border-color);
 }
 
 header h1 {
     font-size: 2.5rem;
-    color: #58a6ff;
+    color: var(--accent-color);
 }
 
 /* Menú de navegación */
@@ -35,9 +54,9 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #161b22;
+    background-color: var(--primary-surface-color);
     padding: 1rem 2rem;
-    border-bottom: 1px solid #30363d;
+    border-bottom: 1px solid var(--border-color);
     position: relative;
 }
 
@@ -49,13 +68,18 @@ header h1 {
 
 .nav-links li a {
     text-decoration: none;
-    color: #c9d1d9;
+    color: var(--text-color);
     font-weight: 600;
     transition: color 0.3s ease;
+    border-radius: 4px; /* Para que el outline del foco se vea mejor */
+    padding: 0.2rem;
 }
 
-.nav-links li a:hover {
-    color: #58a6ff;
+.nav-links li a:hover,
+.nav-links li a:focus {
+    color: var(--accent-color);
+    outline: none; /* Quitamos el outline por defecto para poner uno personalizado */
+    text-decoration: underline;
 }
 
 /* Botón hamburguesa */
@@ -63,8 +87,8 @@ header h1 {
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 22px;
+    width: 1.875rem; /* 30px */
+    height: 1.375rem; /* 22px */
     background: none;
     border: none;
     cursor: pointer;
@@ -72,15 +96,15 @@ header h1 {
 }
 
 .menu-toggle .bar {
-    height: 3px;
+    height: 0.1875rem; /* 3px */
     width: 100%;
-    background-color: #c9d1d9;
+    background-color: var(--text-color);
     border-radius: 2px;
     transition: 0.3s ease;
 }
 
 .menu-toggle.active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(0.5625rem) rotate(45deg); /* 9px */
 }
 
 .menu-toggle.active .bar:nth-child(2) {
@@ -88,7 +112,7 @@ header h1 {
 }
 
 .menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-0.5625rem) rotate(-45deg); /* 9px */
 }
 
 /* Responsive para móviles */
@@ -103,8 +127,8 @@ header h1 {
         left: 0;
         right: 0;
         flex-direction: column;
-        background-color: #161b22;
-        border-top: 1px solid #30363d;
+        background-color: var(--primary-surface-color);
+        border-top: 1px solid var(--border-color);
         display: none;
         padding: 1rem;
         z-index: 10;
@@ -135,8 +159,8 @@ header h1 {
 
 /* Tarjetas */
 .card {
-    background-color: #161b22;
-    border: 1px solid #30363d;
+    background-color: var(--primary-surface-color);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 1.5rem;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -144,7 +168,7 @@ header h1 {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(35, 134, 54, 0.4);
+    box-shadow: 0 10px 20px var(--shadow-color);
 }
 
 /* Botones */
@@ -152,29 +176,32 @@ header h1 {
     display: inline-block;
     margin-top: 0.5rem;
     padding: 0.5rem 1rem;
-    background-color: #238636;
+    background-color: var(--success-color);
     color: white;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn:hover {
-    background-color: #2ea043;
+.btn:hover,
+.btn:focus {
+    background-color: var(--success-hover-color);
     transform: scale(1.05);
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 /* Títulos */
 .section h2 {
-    color: #58a6ff;
+    color: var(--accent-color);
 }
 
 /* Pie de página */
 .footer {
     text-align: center;
     font-size: 0.9rem;
-    color: #8b949e;
-    border-top: 1px solid #30363d;
+    color: var(--text-muted-color);
+    border-top: 1px solid var(--border-color);
     margin-top: 3rem;
     padding-top: 1rem;
 }
@@ -183,60 +210,28 @@ header h1 {
 form input,
 form textarea {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     border-radius: 5px;
-    border: 1px solid #30363d;
-    background-color: #0d1117;
-    color: #c9d1d9;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 form input:focus,
 form textarea:focus {
     outline: none;
-    border-color: #58a6ff;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3); /* Sutil brillo de foco */
 }
 
 /* Cambio de idioma */
 .lang-switch {
-    color: #c9d1d9;
+    color: var(--text-color);
     font-weight: 600;
     text-decoration: none;
 }
 
-.lang-switch:hover {
-    color: #58a6ff;
-}
-
-/* AOS: Animación Scroll */
-[data-aos] {
-    opacity: 0;
-    transition-property: opacity, transform;
-}
-
-[data-aos].aos-animate {
-    opacity: 1;
-}
-
-[data-aos="fade-up"] {
-    transform: translateY(20px);
-}
-
-[data-aos="fade-down"] {
-    transform: translateY(-20px);
-}
-
-[data-aos="fade-left"] {
-    transform: translateX(-20px);
-}
-
-[data-aos="fade-right"] {
-    transform: translateX(20px);
-}
-
-[data-aos].aos-animate[data-aos="fade-up"],
-[data-aos].aos-animate[data-aos="fade-down"],
-[data-aos].aos-animate[data-aos="fade-left"],
-[data-aos].aos-animate[data-aos="fade-right"] {
-    transform: translate(0);
-
+.lang-switch:hover,
+.lang-switch:focus {
+    color: var(--accent-color);
 }
