@@ -2,13 +2,18 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- .0 añadido para mayor compatibilidad -->
     <meta name="description" content="Portafolio profesional de José de Jesús Cerón López, estudiante de ciberseguridad y ethical hacking." />
     <meta name="keywords" content="Ciberseguridad, Ethical Hacking, José Cerón, Portafolio, Seguridad Informática" />
     <meta name="author" content="José de Jesús Cerón López" />
     <title>Portfolio - José de Jesús Cerón López</title>
+
+    <!-- MEJORA: Añade aquí un favicon para dar un toque profesional -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <!-- Fuentes y Estilos -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
 </head>
@@ -19,91 +24,103 @@
     </header>
 
     <nav class="nav">
-  <button class="menu-toggle" aria-label="Abrir menú">
-  <span class="bar"></span>
-  <span class="bar"></span>
-  <span class="bar"></span>
-</button>
-
-  <ul class="nav-links">
-    <li><a href="#about">Sobre Mí</a></li>
-    <li><a href="#cv">Mi CV</a></li>
-    <li><a href="#projects">Proyectos</a></li>
-    <li><a href="#certifications">Certificaciones</a></li>
-    <li><a href="#contact">Contacto</a></li>
-    <li><a href="index-en.html" class="lang-switch"><i class="fas fa-globe"></i> English</a></li>
-    
-  </ul>
-</nav>
-
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#about">Sobre Mí</a></li>
+            <li><a href="#cv">Mi CV</a></li>
+            <li><a href="#projects">Proyectos</a></li>
+            <li><a href="#certifications">Certificaciones</a></li>
+            <li><a href="#contact">Contacto</a></li>
+            <li><a href="index-en.html" class="lang-switch" aria-label="Switch to English"><i class="fas fa-globe"></i> English</a></li>
+        </ul>
+    </nav>
 
     <main class="container">
         <section id="about" class="section about" data-aos="fade-up">
             <h2>Sobre Mí</h2>
             <p>Estudiante apasionado por la ciberseguridad, especializado en técnicas de ethical hacking y análisis de vulnerabilidades. Estoy en constante aprendizaje y busco oportunidades para aplicar mis conocimientos en entornos profesionales.</p>
-        <section id="card" class="section card" data-aos="fade-up">
-  <h2>Mi Tarjeta Digital</h2>
-  <img src="img/A_digital_graphic_design_presentation_card_display.png" alt="Tarjeta Digital de José" style="max-width:100%; border-radius: 12px;" />
-</section>
+        </section>
 
+        <section id="card" class="section card-section" data-aos="fade-up">
+            <h2>Mi Tarjeta Digital</h2>
+            <!-- MEJORA: Se quitó el estilo en línea. Añade la clase 'digital-card-img' a tu CSS.
+                 Ejemplo en styles.css:
+                 .digital-card-img {
+                   max-width: 100%;
+                   border-radius: 12px;
+                   display: block; // Buena práctica para imágenes
+                   margin: 0 auto; // Para centrar si es necesario
+                 }
+            -->
+            <img src="img/A_digital_graphic_design_presentation_card_display.png" alt="Tarjeta de presentación digital de José Cerón" class="digital-card-img" />
         </section>
 
         <section id="cv" class="section cv" data-aos="fade-up">
             <h2>Mi CV</h2>
             <p>Descarga mi currículum en formato PDF para más detalles sobre mi experiencia y formación.</p>
             <a href="https://github.com/KimJesus22/Pagina/raw/main/C.V.%20Jesu%CC%81s%20Cero%CC%81n%20.pdf" class="btn" download target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-file-download"></i> Descargar CV
+                <i class="fas fa-file-download" aria-hidden="true"></i> Descargar CV
             </a>
         </section>
 
         <section id="projects" class="section projects" data-aos="fade-up">
             <h2>Proyectos</h2>
             <div class="grid">
-                <div class="card project">
+                <!-- MEJORA: Usamos la etiqueta <article> para cada proyecto, ya que es contenido semánticamente independiente. -->
+                <article class="card project">
                     <h3>Informe de Auditoría: Reto ROBOT</h3>
                     <p>Análisis de vulnerabilidades críticas y recomendaciones de seguridad. Herramientas utilizadas: Nmap, Gobuster, WPScan.</p>
                     <a href="https://kimjesus22.github.io/Pagina/Informe%20de%20reto%20Robot%20Jesus_Ceron.pdf" class="btn" download>Descargar Informe</a>
-                </div>
-                <div class="card project">
+                </article>
+
+                <!-- MEJORA: Añadido lang="en" para indicar que el contenido de este artículo está en inglés. -->
+                <article class="card project" lang="en">
                     <h3>Audit Report: Alfred Challenge</h3>
                     <p>Analysis of critical vulnerabilities and security recommendations. Tools used: Nmap, Netcat, Metasploit, Incognito.</p>
                     <a href="https://kimjesus22.github.io/Pagina/Tarea%208%20Jesus_Ceron.pdf" class="btn" download>Download Report</a>
-                </div>
-                <div class="card project">
+                </article>
+
+                <article class="card project">
                     <h3>Plataforma TryHackMe</h3>
                     <p>Resolución de más de 30 máquinas virtuales, con enfoque en vulnerabilidades web y escalamiento de privilegios.</p>
-                </div>
-                <div class="card project">
+                </article>
+
+                <article class="card project">
                     <h3>Hack The Box</h3>
                     <p>Participación activa en desafíos técnicos, desarrollando habilidades avanzadas en hacking ético y análisis de sistemas.</p>
-                </div>
-                <div class="card project">
+                </article>
+
+                <article class="card project">
                     <h3>Amigo Secreto</h3>
                     <p>Aplicación web que permite gestionar sorteos de amigo secreto de forma sencilla. Creado con HTML, CSS y JavaScript.</p>
                     <a href="https://kimjesus22.github.io/Amigo-Secreto/" class="btn" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-globe"></i> Ver Página
+                        <i class="fas fa-globe" aria-hidden="true"></i> Ver Página
                     </a>
                     <a href="https://github.com/KimJesus22/Amigo-Secreto" class="btn" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i> Ver Repositorio
+                        <i class="fab fa-github" aria-hidden="true"></i> Ver Repositorio
                     </a>
-                </div>
+                </article>
+
+                <article class="card project">
+                    <h3>TinderBoltApp (Bot de Telegram)</h3>
+                    <p>
+                        Proyecto personal desarrollado en Java que implementa un bot de Telegram con funciones similares a una app de citas, 
+                        usando inteligencia artificial mediante ChatGPT.
+                    </p>
+                    <ul>
+                        <li><strong>Lenguaje:</strong> Java</li>
+                        <li><strong>Tecnologías:</strong> Telegram Bots API, ChatGPT, Gradle</li>
+                        <li><strong>Características:</strong> comandos, botones interactivos, historial y prompts personalizados.</li>
+                    </ul>
+                    <a href="https://github.com/KimJesus22/TinderBoltApp" class="btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i> Ver Repositorio
+                    </a>
+                </article>
             </div>
-            <div class="card project" data-aos="fade-up">
-  <h3>TinderBoltApp (Bot de Telegram)</h3>
-  <p>
-    Proyecto personal desarrollado en Java que implementa un bot de Telegram con funciones similares a una app de citas, 
-    usando inteligencia artificial mediante ChatGPT. El bot permite generar perfiles, crear mensajes de apertura, conversar 
-    en nombre del usuario e incluso simular citas con celebridades.
-  </p>
-  <ul>
-    <li><strong>Lenguaje:</strong> Java</li>
-    <li><strong>Tecnologías:</strong> Telegram Bots API, ChatGPT, Gradle</li>
-    <li><strong>Características destacadas:</strong> comandos personalizados, botones interactivos, historial de conversación y prompts personalizados</li>
-  </ul>
-  <a href="https://github.com/KimJesus22/TinderBoltApp" class="btn" target="_blank" rel="noopener noreferrer">
-    <i class="fab fa-github"></i> Ver Repositorio
-  </a>
-</div>
         </section>
 
         <section id="certifications" class="section certifications" data-aos="fade-up">
@@ -127,16 +144,19 @@
         <section id="contact" class="section contact" data-aos="fade-up">
             <h2>Contacto</h2>
             <form action="https://formspree.io/f/movlawng" method="POST">
-                <label for="name">Nombre:</label><br />
-                <input type="text" id="name" name="name" required /><br /><br />
-
-                <label for="email">Correo Electrónico:</label><br />
-                <input type="email" id="email" name="_replyto" required /><br /><br />
-
-                <label for="message">Mensaje:</label><br />
-                <textarea id="message" name="message" rows="5" required></textarea><br /><br />
-
-                <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Enviar</button>
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required autocomplete="name" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="_replyto" required autocomplete="email" />
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn"><i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar</button>
             </form>
         </section>
     </main>
@@ -145,18 +165,21 @@
         <p>&copy; 2024 José de Jesús Cerón López. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- MEJORA: El atributo 'defer' permite que el HTML se cargue primero, mejorando la velocidad de renderizado. -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script>
-      AOS.init({
-        duration: 1000,
-        once: true
+      // Es mejor poner este script dentro de tu archivo script.js para mantener todo separado.
+      // Pero si se queda aquí, debe estar dentro de un evento que asegure que la página ha cargado.
+      document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+          duration: 1000,
+          once: true
+        });
       });
     </script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
-
 </html>
-
 
 
 
