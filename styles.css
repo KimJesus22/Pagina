@@ -49,6 +49,10 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+
+    /* MEJORA: Evita que palabras muy largas causen desbordamiento horizontal */
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Para navegadores más antiguos */
 }
 
 /* Contenedores */

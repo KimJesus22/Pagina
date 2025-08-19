@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Professional portfolio of José de Jesús Cerón López, cybersecurity and ethical hacking student." />
   <meta name="keywords" content="Cybersecurity, Ethical Hacking, José Cerón, Portfolio, Information Security" />
   <meta name="author" content="José de Jesús Cerón López" />
   <title>Portfolio - José de Jesús Cerón López</title>
-  <link rel="icon" href="https://placehold.co/32x32/58a6ff/white?text=JC" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -20,36 +19,18 @@
   </header>
 
   <nav class="nav">
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#cv">My CV</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="index.html" class="lang-switch" aria-label="Cambiar a Español"><i class="fas fa-globe"></i> Español</a></li>
-      <li>
-        <button class="theme-switcher" id="theme-toggle" aria-label="Switch theme">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-        </button>
-      </li>
-    </ul>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
+    <a href="#about">About Me</a>
+    <a href="#cv">My CV</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+    <a href="index.html" class="lang-switch"><i class="fas fa-globe"></i> Español</a>
   </nav>
 
   <main class="container">
     <section id="about" class="section about" data-aos="fade-up">
       <h2>About Me</h2>
       <p>I am a passionate student of cybersecurity, specialized in ethical hacking techniques, vulnerability analysis, and incident response. I seek to apply my skills in professional environments and continue growing in areas such as digital forensics, OSINT, and penetration testing.</p>
-    </section>
-
-    <section id="card" class="section card-section" data-aos="fade-up">
-        <h2>My Digital Card</h2>
-        <img src="img/A_digital_graphic_design_presentation_card_display.png" alt="Digital business card of José Cerón" class="digital-card-img" loading="lazy" />
     </section>
 
     <section id="cv" class="section cv" data-aos="fade-up">
@@ -63,25 +44,25 @@
     <section id="projects" class="section projects" data-aos="fade-up">
       <h2>Projects</h2>
       <div class="grid">
-        <article class="card project">
+        <div class="card project">
           <h3>Audit Report: ROBOT Challenge</h3>
           <p>Analysis of critical vulnerabilities using tools such as Nmap, Gobuster, and WPScan.</p>
           <a href="https://kimjesus22.github.io/Pagina/Informe%20de%20reto%20Robot%20Jesus_Ceron.pdf" class="btn" download><i class="fas fa-file-download"></i> Download Report</a>
-        </article>
-        <article class="card project">
+        </div>
+        <div class="card project">
           <h3>Audit Report: Alfred Challenge</h3>
           <p>Exploration of security flaws using Netcat, Metasploit, and Incognito.</p>
           <a href="https://kimjesus22.github.io/Pagina/Tarea%208%20Jesus_Ceron.pdf" class="btn" download><i class="fas fa-file-download"></i> Download Report</a>
-        </article>
-        <article class="card project">
+        </div>
+        <div class="card project">
           <h3>TryHackMe Platform</h3>
           <p>Solved over 30 virtual machines focused on web vulnerabilities and privilege escalation.</p>
-        </article>
-        <article class="card project">
+        </div>
+        <div class="card project">
           <h3>Hack The Box</h3>
           <p>Active participation in technical challenges, enhancing ethical hacking and system analysis skills.</p>
-        </article>
-        <article class="card project">
+        </div>
+        <div class="card project">
           <h3>Secret Santa</h3>
           <p>Web application that helps organize Secret Santa events easily. Built with HTML, CSS, and JavaScript.</p>
           <a href="https://kimjesus22.github.io/Amigo-Secreto/" class="btn" target="_blank" rel="noopener noreferrer">
@@ -90,8 +71,8 @@
           <a href="https://github.com/KimJesus22/Amigo-Secreto" class="btn" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-github"></i> View Repository
           </a>
-        </article>
-        <article class="card project">
+        </div>
+        <div class="card project" data-aos="fade-up">
           <h3>TinderBoltApp (Telegram Bot)</h3>
           <p>
             A personal project built with Java that implements a Telegram bot with features inspired by a dating app,
@@ -106,44 +87,41 @@
           <a href="https://github.com/KimJesus22/TinderBoltApp" class="btn" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-github"></i> View Repository
           </a>
-        </article>
+        </div>
       </div>
     </section>
 
     <section id="certifications" class="section certifications" data-aos="fade-up">
       <h2>Certifications</h2>
       <div class="grid">
-        <div class="card certification">
+        <div class="card">
           <h3>CEH Practical - Certified Ethical Hacker</h3>
           <p>Issued in 2024 by EC-Council.</p>
         </div>
-        <div class="card certification">
+        <div class="card">
           <h3>ISO 27001 - Information Security Management Systems</h3>
           <p>Issued in 2024.</p>
         </div>
-        <div class="card certification">
+        <div class="card">
           <h3>Google IT Support</h3>
           <p>Fundamentals of networking, systems, and tech support - Issued in 2023.</p>
         </div>
       </div>
     </section>
 
-     <section id="contact" class="section contact" data-aos="fade-up">
+    <section id="contact" class="section contact" data-aos="fade-up">
       <h2>Contact</h2>
       <form action="https://formspree.io/f/movlawng" method="POST">
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required autocomplete="name" />
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="_replyto" required autocomplete="email" />
-        </div>
-        <div class="form-group">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="btn"><i class="fas fa-paper-plane" aria-hidden="true"></i> Send</button>
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="_replyto" required /><br /><br />
+
+        <label for="message">Message:</label><br />
+        <textarea id="message" name="message" rows="5" required></textarea><br /><br />
+
+        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send</button>
       </form>
     </section>
   </main>
