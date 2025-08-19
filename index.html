@@ -9,12 +9,161 @@
     <title>Portfolio - José de Jesús Cerón López</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="https://placehold.co/32x32/58a6ff/white?text=JC" type="image/png">
+    <link rel="icon" href="img/A_digital_graphic_design_presentation_card_display.png" type="image/png">
 
     <!-- Fuentes y Estilos Externos -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+        /* === VARIABLES DE TEMA === */
+        :root {
+            --transition-speed: 0.3s;
+        }
+
+        html[data-theme='light'] {
+            --bg-color: #f4f7f9;
+            --text-color: #1a1a1a;
+            --text-muted-color: #555;
+            --primary-surface-color: #ffffff;
+            --border-color: #e1e4e8;
+            --accent-color: #007bff;
+            --success-color: #28a745;
+            --success-hover-color: #218838;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --focus-shadow-color: rgba(0, 123, 255, 0.25);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #0d1117;
+            --text-color: #c9d1d9;
+            --text-muted-color: #8b949e;
+            --primary-surface-color: #161b22;
+            --border-color: #30363d;
+            --accent-color: #58a6ff;
+            --success-color: #238636;
+            --success-hover-color: #2ea043;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --focus-shadow-color: rgba(88, 166, 255, 0.3);
+        }
+
+        /* === RESET Y ESTILOS GLOBALES === */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Agregado para un desplazamiento suave */
+            scroll-padding-top: 5rem; /* Ajuste para que la navegación fija no oculte los títulos */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding-top: 2rem;
+        }
+        
+        h1, h2, h3 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 2.5rem; font-weight: 800; }
+        h2 { font-size: 2rem; font-weight: 600; border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; }
+        p { margin-bottom: 1rem; }
+        a { color: var(--accent-color); text-decoration: none; }
+
+        /* === HEADER === */
+        .header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--primary-surface-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header p {
+            color: var(--text-muted-color);
+            font-size: 1.1rem;
+        }
+
+        /* === NAVEGACIÓN === */
+        .nav {
+            background-color: var(--primary-surface-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center; /* Centra los links en desktop */
+            align-items: center;
+            height: 4rem;
+        }
+        
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 960px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color var(--transition-speed) ease;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-color);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after { /* Estilo para el link activo */
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        .nav-links a:focus {
             outline: none;
             text-decoration: underline;
         }
@@ -72,6 +221,9 @@
 
         /* === MEDIA QUERY PARA RESPONSIVE === */
         @media (max-width: 768px) {
+            .nav {
+                justify-content: flex-end; /* Alinea el botón a la derecha */
+            }
             .menu-toggle { display: flex; }
             .nav-links {
                 position: absolute;
@@ -113,6 +265,8 @@
             border-radius: 8px;
             padding: 1.5rem;
             transition: box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -123,6 +277,10 @@
         .card h3 {
             color: var(--accent-color);
             margin-bottom: 0.5rem;
+        }
+
+        .card .project-buttons {
+            margin-top: auto; /* Empuja los botones al final de la tarjeta */
         }
 
         .digital-card-img {
@@ -147,6 +305,7 @@
             text-decoration: none;
             font-weight: 600;
             transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+            cursor: pointer;
         }
 
         .btn:hover,
@@ -177,6 +336,7 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            font-family: inherit;
         }
 
         form input:focus,
@@ -193,7 +353,7 @@
             color: var(--text-muted-color);
             border-top: 1px solid var(--border-color);
             margin-top: 3rem;
-            padding-top: 2rem;
+            padding: 2rem 1rem;
         }
     </style>
 </head>
@@ -204,39 +364,44 @@
     </header>
 
     <nav class="nav">
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#about">Sobre Mí</a></li>
-            <li><a href="#cv">Mi CV</a></li>
-            <li><a href="#projects">Proyectos</a></li>
-            <li><a href="#certifications">Certificaciones</a></li>
-            <li><a href="#contact">Contacto</a></li>
-            <li><a href="index-en.html" class="lang-switch" aria-label="Switch to English"><i class="fas fa-globe"></i> English</a></li>
-            <li>
-                <button class="theme-switcher" id="theme-toggle" aria-label="Cambiar tema">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
-                </button>
-            </li>
-        </ul>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
+        <div class="nav-wrapper">
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">Sobre Mí</a></li>
+                <li><a href="#cv">Mi CV</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#certifications">Certificaciones</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a href="index-en.html" class="lang-switch" aria-label="Switch to English"><i class="fas fa-globe"></i> English</a></li>
+                <li>
+                    <button class="theme-switcher" id="theme-toggle" aria-label="Cambiar tema">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
     </nav>
 
     <main class="container">
-        <section id="about" class="section about" data-aos="fade-up">
+        <section id="about" class="section" data-aos="fade-up">
             <h2>Sobre Mí</h2>
-            <p>Estudiante apasionado por la ciberseguridad, especializado en técnicas de ethical hacking y análisis de vulnerabilidades. Estoy en constante aprendizaje y busco oportunidades para aplicar mis conocimientos en entornos profesionales.</p>
+            <p>Soy estudiante de Ingeniería en Sistemas con experiencia en desarrollo Back End y ciberseguridad, apasionado por crear soluciones eficientes y seguras. He trabajado con Java, APIs REST, Spring, y tengo conocimientos en automatización, manejo de bases de datos y seguridad de la información (ISO 27001, CEHPC).</p>
+            <p>Tengo experiencia en pentesting utilizando herramientas como Kali Linux, Nessus y SQL, resolución de retos en plataformas como TryHackMe y Hack The Box, y manejo de entornos virtualizados como VMware Workstation. Me caracterizo por mi capacidad de resolver problemas, adaptarme rápidamente a nuevos entornos y trabajar en equipo para alcanzar objetivos.</p>
+            <p>Busco oportunidades donde pueda aplicar mis habilidades técnicas y seguir creciendo profesionalmente en proyectos desafiantes, contribuyendo al desarrollo de aplicaciones robustas y seguras y al fortalecimiento de la seguridad informática.</p>
         </section>
 
-        <section id="card" class="section card-section" data-aos="fade-up">
+        <section id="card" class="section" data-aos="fade-up">
             <h2>Mi Tarjeta Digital</h2>
-            <img src="img/A_digital_graphic_design_presentation_card_display.png" alt="Tarjeta de presentación digital de José Cerón" class="digital-card-img" loading="lazy" />
+            <!-- Corregido: Se reemplazó la ruta local con una imagen de marcador de posición -->
+            <img src="https://placehold.co/800x450/161b22/58a6ff?text=Tarjeta+Digital" alt="Tarjeta de presentación digital de José Cerón" class="digital-card-img" loading="lazy" />
         </section>
 
-        <section id="cv" class="section cv" data-aos="fade-up">
+        <section id="cv" class="section" data-aos="fade-up">
             <h2>Mi CV</h2>
             <p>Descarga mi currículum en formato PDF para más detalles sobre mi experiencia y formación.</p>
             <a href="https://github.com/KimJesus22/Pagina/raw/main/C.V.%20Jesu%CC%81s%20Cero%CC%81n%20.pdf" class="btn" download target="_blank" rel="noopener noreferrer">
@@ -244,19 +409,23 @@
             </a>
         </section>
 
-        <section id="projects" class="section projects" data-aos="fade-up">
+        <section id="projects" class="section" data-aos="fade-up">
             <h2>Proyectos</h2>
             <div class="grid">
                 <article class="card project">
                     <h3>Informe de Auditoría: Reto ROBOT</h3>
                     <p>Análisis de vulnerabilidades críticas y recomendaciones de seguridad. Herramientas utilizadas: Nmap, Gobuster, WPScan.</p>
-                    <a href="https://kimjesus22.github.io/Pagina/Informe%20de%20reto%20Robot%20Jesus_Ceron.pdf" class="btn" download>Descargar Informe</a>
+                    <div class="project-buttons">
+                        <a href="https://kimjesus22.github.io/Pagina/Informe%20de%20reto%20Robot%20Jesus_Ceron.pdf" class="btn" download>Descargar Informe</a>
+                    </div>
                 </article>
 
                 <article class="card project" lang="en">
                     <h3>Audit Report: Alfred Challenge</h3>
                     <p>Analysis of critical vulnerabilities and security recommendations. Tools used: Nmap, Netcat, Metasploit, Incognito.</p>
-                    <a href="https://kimjesus22.github.io/Pagina/Tarea%208%20Jesus_Ceron.pdf" class="btn" download>Download Report</a>
+                     <div class="project-buttons">
+                        <a href="https://kimjesus22.github.io/Pagina/Tarea%208%20Jesus_Ceron.pdf" class="btn" download>Download Report</a>
+                    </div>
                 </article>
 
                 <article class="card project">
@@ -272,25 +441,29 @@
                 <article class="card project">
                     <h3>Amigo Secreto</h3>
                     <p>Aplicación web que permite gestionar sorteos de amigo secreto de forma sencilla. Creado con HTML, CSS y JavaScript.</p>
-                    <a href="https://kimjesus22.github.io/Amigo-Secreto/" class="btn" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-globe" aria-hidden="true"></i> Ver Página
-                    </a>
-                    <a href="https://github.com/KimJesus22/Amigo-Secreto" class="btn" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github" aria-hidden="true"></i> Ver Repositorio
-                    </a>
+                     <div class="project-buttons">
+                        <a href="https://kimjesus22.github.io/Amigo-Secreto/" class="btn" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-globe" aria-hidden="true"></i> Ver Página
+                        </a>
+                        <a href="https://github.com/KimJesus22/Amigo-Secreto" class="btn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github" aria-hidden="true"></i> Ver Repositorio
+                        </a>
+                    </div>
                 </article>
 
                 <article class="card project">
                     <h3>TinderBoltApp (Bot de Telegram)</h3>
                     <p>Proyecto personal en Java que implementa un bot de Telegram con funciones de citas, usando la IA de ChatGPT.</p>
-                    <a href="https://github.com/KimJesus22/TinderBoltApp" class="btn" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github" aria-hidden="true"></i> Ver Repositorio
-                    </a>
+                     <div class="project-buttons">
+                        <a href="https://github.com/KimJesus22/TinderBoltApp" class="btn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github" aria-hidden="true"></i> Ver Repositorio
+                        </a>
+                    </div>
                 </article>
             </div>
         </section>
 
-        <section id="certifications" class="section certifications" data-aos="fade-up">
+        <section id="certifications" class="section" data-aos="fade-up">
             <h2>Certificaciones</h2>
             <div class="grid">
                 <div class="card certification">
@@ -308,7 +481,7 @@
             </div>
         </section>
 
-        <section id="contact" class="section contact" data-aos="fade-up">
+        <section id="contact" class="section" data-aos="fade-up">
             <h2>Contacto</h2>
             <form action="https://formspree.io/f/movlawng" method="POST">
                 <div class="form-group">
@@ -335,10 +508,10 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inicialización de la librería de animaciones al hacer scroll
+        // --- INICIALIZACIÓN DE AOS ---
         AOS.init({
-            duration: 800, // Duración de la animación
-            once: true, // La animación ocurre solo una vez
+            duration: 800,
+            once: true,
         });
 
         // --- LÓGICA PARA EL MENÚ MÓVIL (HAMBURGUESA) ---
@@ -346,11 +519,9 @@
         const navLinks = document.getElementById('nav-links');
 
         menuToggle.addEventListener('click', () => {
-            // Alternar clases para la animación del botón y mostrar/ocultar el menú
             menuToggle.classList.toggle('active');
             navLinks.classList.toggle('show');
             
-            // Actualizar atributo ARIA para accesibilidad
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
             menuToggle.setAttribute('aria-expanded', !isExpanded);
         });
@@ -359,7 +530,6 @@
         const themeToggle = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
 
-        // Función para aplicar el tema guardado en localStorage o el preferido por el sistema
         const applyStoredTheme = () => {
             const storedTheme = localStorage.getItem('theme');
             const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -373,17 +543,40 @@
             }
         };
 
-        // Event listener para el botón de cambio de tema
         themeToggle.addEventListener('click', () => {
             const currentTheme = htmlElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             
             htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme); // Guardar la preferencia
+            localStorage.setItem('theme', newTheme);
         });
 
-        // Aplicar el tema al cargar la página
-        document.addEventListener('DOMContentLoaded', applyStoredTheme);
+        // --- LÓGICA PARA RESALTAR EL ENLACE DE NAVEGACIÓN ACTIVO ---
+        const sections = document.querySelectorAll('section[id]');
+        const navLi = document.querySelectorAll('.nav-links a');
+
+        const handleScroll = () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) { // 100 es un offset
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLi.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        };
+        
+        // Aplicar el tema y los listeners al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            applyStoredTheme();
+            window.addEventListener('scroll', handleScroll);
+        });
 
     </script>
 </body>
