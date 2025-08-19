@@ -37,7 +37,7 @@ html[data-theme='light'] {
 }
 
 /* === RESET Y ESTILOS GLOBALES === */
-body, h1,
+body, h1, h2, p, a, ul, li {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -48,10 +48,11 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
 /* Contenedores */
-header, nav, section, footer {
+header, .nav, section, footer {
     padding: 2rem;
     max-width: 1000px;
     margin: auto;
@@ -76,7 +77,9 @@ header h1 {
     background-color: var(--primary-surface-color);
     padding: 1rem 2rem;
     border-bottom: 1px solid var(--border-color);
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .nav-links {
@@ -100,6 +103,30 @@ header h1 {
     outline: none; /* Quitamos el outline por defecto para poner uno personalizado */
     text-decoration: underline;
 }
+
+/* === BOTÓN DE TEMA === */
+.theme-switcher {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-speed) ease, background-color var(--transition-speed) ease;
+}
+
+.theme-switcher:hover,
+.theme-switcher:focus {
+    color: var(--accent-color);
+    background-color: var(--border-color);
+    outline: none;
+}
+html[data-theme='dark'] .theme-switcher .fa-sun { display: none; }
+html[data-theme='light'] .theme-switcher .fa-moon { display: none; }
 
 /* Botón hamburguesa */
 .menu-toggle {
@@ -213,6 +240,9 @@ header h1 {
 /* Títulos */
 .section h2 {
     color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
 }
 
 /* Pie de página */
@@ -224,6 +254,18 @@ header h1 {
     margin-top: 3rem;
     padding-top: 1rem;
 }
+
+/* === FORMULARIO === */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
 
 /* Formularios */
 form input,
@@ -240,7 +282,7 @@ form input:focus,
 form textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3); /* Sutil brillo de foco */
+    box-shadow: 0 0 0 3px var(--focus-shadow-color);
 }
 
 /* Cambio de idioma */
@@ -253,4 +295,14 @@ form textarea:focus {
 .lang-switch:hover,
 .lang-switch:focus {
     color: var(--accent-color);
+}
+
+/* Imagen de tarjeta digital */
+.digital-card-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
 }

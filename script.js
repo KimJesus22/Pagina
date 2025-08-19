@@ -35,4 +35,35 @@ document.addEventListener('DOMContentLoaded', () => {
       offset: 50      // Activa la animación un poco antes de que el elemento sea visible
     });
   }
+
+  // --- LÓGICA PARA EL CAMBIO DE TEMA (CLARO/OSCURO) ---
+  const themeToggle = document.getElementById('theme-toggle');
+  const htmlElement = document.documentElement;
+
+  if (themeToggle && htmlElement) {
+    // Función para aplicar el tema guardado en localStorage o el preferido por el sistema
+    const applyStoredTheme = () => {
+      const storedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (storedTheme) {
+        htmlElement.setAttribute('data-theme', storedTheme);
+      } else if (systemPrefersDark) {
+        htmlElement.setAttribute('data-theme', 'dark');
+      } else {
+        htmlElement.setAttribute('data-theme', 'light');
+      }
+    };
+
+    // Event listener para el botón de cambio de tema
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme); // Guardar la preferencia
+    });
+
+    applyStoredTheme(); // Aplicar el tema al cargar la página
+  }
 });
