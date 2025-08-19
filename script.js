@@ -1,3 +1,4 @@
+// Espera a que todo el contenido del DOM esté cargado antes de ejecutar el script
 document.addEventListener('DOMContentLoaded', () => {
   // --- Lógica del Menú Móvil ---
   const menuToggle = document.getElementById('menu-toggle');
@@ -27,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Inicialización de la librería Animate On Scroll (AOS) ---
-  // MEJORA: Centralizamos el script que antes estaba en los archivos HTML.
   if (typeof AOS !== 'undefined') {
     AOS.init({
       duration: 1000, // Duración de la animación
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Limpiar el mensaje de carga
       projectsGrid.innerHTML = '';
 
-      // Repositorios a excluir
+      // Repositorios a excluir (puedes añadir más nombres aquí)
       const excludedRepos = ['KimJesus22', 'Pagina'];
 
       repos
@@ -132,3 +132,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   fetchGitHubProjects();
 });
+

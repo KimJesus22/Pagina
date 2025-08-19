@@ -73,55 +73,9 @@
 
         <section id="projects" class="section" data-aos="fade-up">
             <h2>Proyectos</h2>
-            <div class="grid">
-                <article class="card project">
-                    <h3>Informe de Auditoría: Reto ROBOT</h3>
-                    <p>Análisis de vulnerabilidades críticas y recomendaciones de seguridad. Herramientas utilizadas: Nmap, Gobuster, WPScan.</p>
-                    <div class="project-buttons">
-                        <a href="https://kimjesus22.github.io/Pagina/Informe%20de%20reto%20Robot%20Jesus_Ceron.pdf" class="btn" download>Descargar Informe</a>
-                    </div>
-                </article>
-
-                <article class="card project" lang="en">
-                    <h3>Audit Report: Alfred Challenge</h3>
-                    <p>Analysis of critical vulnerabilities and security recommendations. Tools used: Nmap, Netcat, Metasploit, Incognito.</p>
-                     <div class="project-buttons">
-                        <a href="https://kimjesus22.github.io/Pagina/Tarea%208%20Jesus_Ceron.pdf" class="btn" download>Download Report</a>
-                    </div>
-                </article>
-
-                <article class="card project">
-                    <h3>Plataforma TryHackMe</h3>
-                    <p>Resolución de más de 30 máquinas virtuales, con enfoque en vulnerabilidades web y escalamiento de privilegios.</p>
-                </article>
-
-                <article class="card project">
-                    <h3>Hack The Box</h3>
-                    <p>Participación activa en desafíos técnicos, desarrollando habilidades avanzadas en hacking ético y análisis de sistemas.</p>
-                </article>
-
-                <article class="card project">
-                    <h3>Amigo Secreto</h3>
-                    <p>Aplicación web que permite gestionar sorteos de amigo secreto de forma sencilla. Creado con HTML, CSS y JavaScript.</p>
-                     <div class="project-buttons">
-                        <a href="https://kimjesus22.github.io/Amigo-Secreto/" class="btn" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-globe" aria-hidden="true"></i> Ver Página
-                        </a>
-                        <a href="https://github.com/KimJesus22/Amigo-Secreto" class="btn" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github" aria-hidden="true"></i> Ver Repositorio
-                        </a>
-                    </div>
-                </article>
-
-                <article class="card project">
-                    <h3>TinderBoltApp (Bot de Telegram)</h3>
-                    <p>Proyecto personal en Java que implementa un bot de Telegram con funciones de citas, usando la IA de ChatGPT.</p>
-                     <div class="project-buttons">
-                        <a href="https://github.com/KimJesus22/TinderBoltApp" class="btn" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github" aria-hidden="true"></i> Ver Repositorio
-                        </a>
-                    </div>
-                </article>
+            <!-- Este contenedor será rellenado dinámicamente por script.js -->
+            <div class="grid" id="projects-grid">
+                <!-- Los proyectos de GitHub aparecerán aquí -->
             </div>
         </section>
 
@@ -169,77 +123,8 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // --- INICIALIZACIÓN DE AOS ---
-        AOS.init({
-            duration: 800,
-            once: true,
-        });
+    <!-- Enlace al nuevo archivo de script -->
+    <script src="script.js" defer></script>
 
-        // --- LÓGICA PARA EL MENÚ MÓVIL (HAMBURGUESA) ---
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('show');
-            
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-        });
-
-        // --- LÓGICA PARA EL CAMBIO DE TEMA (CLARO/OSCURO) ---
-        const themeToggle = document.getElementById('theme-toggle');
-        const htmlElement = document.documentElement;
-
-        const applyStoredTheme = () => {
-            const storedTheme = localStorage.getItem('theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            if (storedTheme) {
-                htmlElement.setAttribute('data-theme', storedTheme);
-            } else if (systemPrefersDark) {
-                htmlElement.setAttribute('data-theme', 'dark');
-            } else {
-                htmlElement.setAttribute('data-theme', 'light');
-            }
-        };
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-});
-
-        // --- LÓGICA PARA RESALTAR EL ENLACE DE NAVEGACIÓN ACTIVO ---
-        const sections = document.querySelectorAll('section[id]');
-        const navLi = document.querySelectorAll('.nav-links a');
-
-        const handleScroll = () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 100) { // 100 es un offset
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLi.forEach(a => {
-                a.classList.remove('active');
-                if (a.getAttribute('href').includes(current)) {
-                    a.classList.add('active');
-                }
-            });
-        };
-        
-        // Aplicar el tema y los listeners al cargar la página
-        document.addEventListener('DOMContentLoaded', () => {
-            applyStoredTheme();
-            window.addEventListener('scroll', handleScroll);
-        });
-
-    </script>
 </body>
 </html>

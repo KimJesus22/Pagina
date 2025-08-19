@@ -330,3 +330,22 @@ form textarea:focus {
     margin-top: 3rem;
     padding: 2rem 1rem;
 }
+.project-tags {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background-color: var(--border-color);
+    color: var(--text-muted-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.card-footer {
+    margin-top: auto; /* Empuja el pie de la tarjeta hacia abajo */
+}
