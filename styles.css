@@ -6,6 +6,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* Asegura que el nav fijo no oculte los títulos de sección */
 }
 
 /* Tema Oscuro (Default) */
@@ -37,10 +38,10 @@ html[data-theme='light'] {
 }
 
 /* === RESET Y ESTILOS GLOBALES === */
-body, h1, h2, p, a, ul, li {
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
@@ -54,28 +55,34 @@ body {
 }
 
 /* === CONTENEDORES Y SECCIONES === */
-.header, .nav, .section, .footer {
-    padding: 2rem;
-    max-width: 1000px;
+.container {
+    max-width: 960px;
     margin: 0 auto;
+    padding: 2rem 1rem;
 }
 
-.section h2 {
-    color: var(--accent-color);
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 0.5rem;
+.section {
+    margin-bottom: 3rem;
+    padding-top: 2rem;
 }
+
+h1, h2, h3 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; font-weight: 800; }
+h2 { font-size: 2rem; font-weight: 600; border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; }
+p { margin-bottom: 1rem; }
+a { color: var(--accent-color); text-decoration: none; }
+
 
 /* === ENCABEZADO === */
 .header {
     text-align: center;
+    padding: 2rem 1rem;
+    background-color: var(--primary-surface-color);
     border-bottom: 1px solid var(--border-color);
-}
-
-.header h1 {
-    font-size: 2.5rem;
-    color: var(--accent-color);
 }
 
 .header p {
@@ -85,16 +92,25 @@ body {
 
 /* === NAVEGACIÓN === */
 .nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     background-color: var(--primary-surface-color);
-    padding: 1rem 2rem;
     border-bottom: 1px solid var(--border-color);
+    padding: 0 1rem;
     position: sticky;
     top: 0;
     z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
     transition: background-color var(--transition-speed) ease;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 960px;
 }
 
 .nav-links {
@@ -104,7 +120,7 @@ body {
     gap: 1.5rem;
 }
 
-.nav-links li a {
+.nav-links a {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 600;
@@ -113,8 +129,9 @@ body {
     padding: 0.2rem;
 }
 
-.nav-links li a:hover,
-.nav-links li a:focus {
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a.active {
     color: var(--accent-color);
     outline: none;
     text-decoration: underline;
@@ -172,6 +189,9 @@ html[data-theme='light'] .theme-switcher .fa-moon { display: none; }
 
 /* === MEDIA QUERY PARA RESPONSIVE === */
 @media (max-width: 768px) {
+    .nav {
+        justify-content: flex-end;
+    }
     .menu-toggle { display: flex; }
     .nav-links {
         position: absolute;
@@ -234,24 +254,8 @@ html[data-theme='light'] .theme-switcher .fa-moon { display: none; }
     margin-bottom: 1rem;
 }
 
-.project-tags {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.tag {
-    background-color: var(--border-color);
-    color: var(--text-muted-color);
-    padding: 0.2rem 0.6rem;
-    border-radius: 1rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-.card-footer {
-    margin-top: auto; /* Empuja el pie de la tarjeta hacia abajo */
+.project-buttons {
+    margin-top: auto; /* Empuja los botones al final de la tarjeta */
 }
 
 .digital-card-img {
@@ -276,6 +280,7 @@ html[data-theme='light'] .theme-switcher .fa-moon { display: none; }
     text-decoration: none;
     font-weight: 600;
     transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+    cursor: pointer;
 }
 
 .btn:hover,
@@ -306,6 +311,7 @@ form textarea {
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    font-family: inherit;
 }
 
 form input:focus,
@@ -322,5 +328,5 @@ form textarea:focus {
     color: var(--text-muted-color);
     border-top: 1px solid var(--border-color);
     margin-top: 3rem;
-    padding-top: 2rem;
+    padding: 2rem 1rem;
 }
