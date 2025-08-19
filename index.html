@@ -167,19 +167,6 @@
 
     <!-- MEJORA: El atributo 'defer' permite que el HTML se cargue primero, mejorando la velocidad de renderizado. -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-    <script>
-      // Es mejor poner este script dentro de tu archivo script.js para mantener todo separado.
-      // Pero si se queda aquí, debe estar dentro de un evento que asegure que la página ha cargado.
-      document.addEventListener('DOMContentLoaded', function() {
-        AOS.init({
-          duration: 1000,
-          once: true
-        });
-      });
-    </script>
     <script src="script.js" defer></script>
 </body>
 </html>
-
-
-
