@@ -1,21 +1,319 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- .0 añadido para mayor compatibilidad -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portafolio profesional de José de Jesús Cerón López, estudiante de ciberseguridad y ethical hacking." />
     <meta name="keywords" content="Ciberseguridad, Ethical Hacking, José Cerón, Portafolio, Seguridad Informática" />
     <meta name="author" content="José de Jesús Cerón López" />
     <title>Portfolio - José de Jesús Cerón López</title>
 
-    <!-- MEJORA: Añade aquí un favicon para dar un toque profesional -->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="icon" href="https://placehold.co/32x32/58a6ff/white?text=JC" type="image/png">
 
-    <!-- Fuentes y Estilos -->
+    <!-- Fuentes y Estilos Externos -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        /* === TEMAS Y VARIABLES CSS === */
+        :root {
+            --main-font: 'Inter', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Tema Oscuro (Default) */
+        html[data-theme='dark'] {
+            --bg-color: #0d1117;
+            --primary-surface-color: #161b22;
+            --border-color: #30363d;
+            --text-color: #c9d1d9;
+            --text-muted-color: #8b949e;
+            --accent-color: #58a6ff;
+            --success-color: #238636;
+            --success-hover-color: #2ea043;
+            --shadow-color: rgba(35, 134, 54, 0.2);
+            --focus-shadow-color: rgba(88, 166, 255, 0.3);
+        }
+
+        /* Tema Claro */
+        html[data-theme='light'] {
+            --bg-color: #ffffff;
+            --primary-surface-color: #f6f8fa;
+            --border-color: #d0d7de;
+            --text-color: #24292f;
+            --text-muted-color: #57606a;
+            --accent-color: #0969da;
+            --success-color: #1a7f37;
+            --success-hover-color: #2c974b;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --focus-shadow-color: rgba(9, 105, 218, 0.3);
+        }
+
+        /* === RESET Y ESTILOS GLOBALES === */
+        body, h1, h2, p, a, ul, li {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+        }
+
+        /* === CONTENEDORES Y SECCIONES === */
+        .header, .nav, .section, .footer {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* === ENCABEZADO === */
+        .header {
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+
+        .header p {
+            color: var(--text-muted-color);
+            font-size: 1.1rem;
+        }
+
+        /* === NAVEGACIÓN === */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--primary-surface-color);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color var(--transition-speed) ease;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color var(--transition-speed) ease;
+            border-radius: 4px;
+            padding: 0.2rem;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li a:focus {
+            color: var(--accent-color);
+            outline: none;
+            text-decoration: underline;
+        }
+
+        /* === BOTÓN DE TEMA === */
+        .theme-switcher {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color var(--transition-speed) ease, background-color var(--transition-speed) ease;
+        }
+
+        .theme-switcher:hover,
+        .theme-switcher:focus {
+            color: var(--accent-color);
+            background-color: var(--border-color);
+            outline: none;
+        }
+        
+        /* Ocultar un ícono dependiendo del tema */
+        html[data-theme='dark'] .theme-switcher .fa-sun { display: none; }
+        html[data-theme='light'] .theme-switcher .fa-moon { display: none; }
+
+        /* === BOTÓN HAMBURGUESA (MÓVIL) === */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 1.875rem;
+            height: 1.375rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .menu-toggle .bar {
+            height: 0.1875rem;
+            width: 100%;
+            background-color: var(--text-color);
+            border-radius: 2px;
+            transition: 0.3s ease;
+        }
+
+        .menu-toggle.active .bar:nth-child(1) { transform: translateY(0.5625rem) rotate(45deg); }
+        .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+        .menu-toggle.active .bar:nth-child(3) { transform: translateY(-0.5625rem) rotate(-45deg); }
+
+        /* === MEDIA QUERY PARA RESPONSIVE === */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: var(--primary-surface-color);
+                border-top: 1px solid var(--border-color);
+                display: none;
+                padding: 1rem;
+                z-index: 10;
+            }
+            .nav-links.show {
+                display: flex;
+                animation: fadeIn 0.3s ease-in-out;
+            }
+            .nav-links li {
+                padding: 0.5rem 0;
+                text-align: center;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === GRID Y TARJETAS === */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .card {
+            background-color: var(--primary-surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+        
+        .card h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .digital-card-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* === BOTONES === */
+        .btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            margin-right: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color var(--transition-speed) ease, transform 0.2s ease;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background-color: var(--success-hover-color);
+            transform: scale(1.05);
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* === FORMULARIO === */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        form input:focus,
+        form textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px var(--focus-shadow-color);
+        }
+
+        /* === PIE DE PÁGINA === */
+        .footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted-color);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+            padding-top: 2rem;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -24,11 +322,6 @@
     </header>
 
     <nav class="nav">
-        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
         <ul class="nav-links" id="nav-links">
             <li><a href="#about">Sobre Mí</a></li>
             <li><a href="#cv">Mi CV</a></li>
@@ -36,7 +329,18 @@
             <li><a href="#certifications">Certificaciones</a></li>
             <li><a href="#contact">Contacto</a></li>
             <li><a href="index-en.html" class="lang-switch" aria-label="Switch to English"><i class="fas fa-globe"></i> English</a></li>
+            <li>
+                <button class="theme-switcher" id="theme-toggle" aria-label="Cambiar tema">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+            </li>
         </ul>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
     </nav>
 
     <main class="container">
@@ -47,16 +351,7 @@
 
         <section id="card" class="section card-section" data-aos="fade-up">
             <h2>Mi Tarjeta Digital</h2>
-            <!-- MEJORA: Se quitó el estilo en línea. Añade la clase 'digital-card-img' a tu CSS.
-                 Ejemplo en styles.css:
-                 .digital-card-img {
-                   max-width: 100%;
-                   border-radius: 12px;
-                   display: block; // Buena práctica para imágenes
-                   margin: 0 auto; // Para centrar si es necesario
-                 }
-            -->
-            <img src="img/A_digital_graphic_design_presentation_card_display.png" alt="Tarjeta de presentación digital de José Cerón" class="digital-card-img" />
+            <img src="img/A_digital_graphic_design_presentation_card_display.png" alt="Tarjeta de presentación digital de José Cerón" class="digital-card-img" loading="lazy" />
         </section>
 
         <section id="cv" class="section cv" data-aos="fade-up">
@@ -70,14 +365,12 @@
         <section id="projects" class="section projects" data-aos="fade-up">
             <h2>Proyectos</h2>
             <div class="grid">
-                <!-- MEJORA: Usamos la etiqueta <article> para cada proyecto, ya que es contenido semánticamente independiente. -->
                 <article class="card project">
                     <h3>Informe de Auditoría: Reto ROBOT</h3>
                     <p>Análisis de vulnerabilidades críticas y recomendaciones de seguridad. Herramientas utilizadas: Nmap, Gobuster, WPScan.</p>
                     <a href="https://kimjesus22.github.io/Pagina/Informe%20de%20reto%20Robot%20Jesus_Ceron.pdf" class="btn" download>Descargar Informe</a>
                 </article>
 
-                <!-- MEJORA: Añadido lang="en" para indicar que el contenido de este artículo está en inglés. -->
                 <article class="card project" lang="en">
                     <h3>Audit Report: Alfred Challenge</h3>
                     <p>Analysis of critical vulnerabilities and security recommendations. Tools used: Nmap, Netcat, Metasploit, Incognito.</p>
@@ -107,15 +400,7 @@
 
                 <article class="card project">
                     <h3>TinderBoltApp (Bot de Telegram)</h3>
-                    <p>
-                        Proyecto personal desarrollado en Java que implementa un bot de Telegram con funciones similares a una app de citas, 
-                        usando inteligencia artificial mediante ChatGPT.
-                    </p>
-                    <ul>
-                        <li><strong>Lenguaje:</strong> Java</li>
-                        <li><strong>Tecnologías:</strong> Telegram Bots API, ChatGPT, Gradle</li>
-                        <li><strong>Características:</strong> comandos, botones interactivos, historial y prompts personalizados.</li>
-                    </ul>
+                    <p>Proyecto personal en Java que implementa un bot de Telegram con funciones de citas, usando la IA de ChatGPT.</p>
                     <a href="https://github.com/KimJesus22/TinderBoltApp" class="btn" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-github" aria-hidden="true"></i> Ver Repositorio
                     </a>
@@ -127,11 +412,11 @@
             <h2>Certificaciones</h2>
             <div class="grid">
                 <div class="card certification">
-                    <h3>Certified Ethical Hacker Practical Certification (CEHPC)</h3>
+                    <h3>Certified Ethical Hacker Practical (CEHPC)</h3>
                     <p>Emitido en 2024</p>
                 </div>
                 <div class="card certification">
-                    <h3>ISO 27001: Sistemas de Gestión de Seguridad de la Información</h3>
+                    <h3>ISO 27001: Sistemas de Gestión de Seguridad</h3>
                     <p>Emitido en 2024</p>
                 </div>
                 <div class="card certification">
@@ -165,8 +450,59 @@
         <p>&copy; 2024 José de Jesús Cerón López. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- MEJORA: El atributo 'defer' permite que el HTML se cargue primero, mejorando la velocidad de renderizado. -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-    <script src="script.js" defer></script>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicialización de la librería de animaciones al hacer scroll
+        AOS.init({
+            duration: 800, // Duración de la animación
+            once: true, // La animación ocurre solo una vez
+        });
+
+        // --- LÓGICA PARA EL MENÚ MÓVIL (HAMBURGUESA) ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            // Alternar clases para la animación del botón y mostrar/ocultar el menú
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('show');
+            
+            // Actualizar atributo ARIA para accesibilidad
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // --- LÓGICA PARA EL CAMBIO DE TEMA (CLARO/OSCURO) ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Función para aplicar el tema guardado en localStorage o el preferido por el sistema
+        const applyStoredTheme = () => {
+            const storedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (storedTheme) {
+                htmlElement.setAttribute('data-theme', storedTheme);
+            } else if (systemPrefersDark) {
+                htmlElement.setAttribute('data-theme', 'dark');
+            } else {
+                htmlElement.setAttribute('data-theme', 'light');
+            }
+        };
+
+        // Event listener para el botón de cambio de tema
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme); // Guardar la preferencia
+        });
+
+        // Aplicar el tema al cargar la página
+        document.addEventListener('DOMContentLoaded', applyStoredTheme);
+
+    </script>
 </body>
 </html>
