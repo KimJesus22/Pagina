@@ -254,10 +254,6 @@ html[data-theme='light'] .theme-switcher .fa-moon { display: none; }
     margin-bottom: 1rem;
 }
 
-.project-buttons {
-    margin-top: auto; /* Empuja los botones al final de la tarjeta */
-}
-
 .digital-card-img {
     max-width: 100%;
     height: auto;
@@ -319,6 +315,11 @@ form textarea:focus {
     outline: none;
     border-color: var(--accent-color);
     box-shadow: 0 0 0 3px var(--focus-shadow-color);
+}
+
+.required-indicator {
+    color: var(--accent-color);
+    font-weight: bold;
 }
 
 /* === PIE DE PÁGINA === */

@@ -4,20 +4,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
 
+  // --- Lógica de "Atrapar Foco" para el menú ---
+  const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  let firstFocusableElement;
+  let focusableContent;
+  let lastFocusableElement;
+
   if (menuToggle && navLinks) {
+    const openMenu = () => {
+      navLinks.classList.add('show');
+      menuToggle.classList.add('active');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      
+      // Lógica para atrapar el foco
+      focusableContent = Array.from(navLinks.querySelectorAll(focusableElements));
+      firstFocusableElement = focusableContent[0];
+      lastFocusableElement = focusableContent[focusableContent.length - 1];
+      firstFocusableElement.focus();
+    };
+
+    const closeMenu = () => {
+      navLinks.classList.remove('show');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.focus(); // Devolver el foco al botón que abrió el menú
+    };
+
     menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-      menuToggle.classList.toggle('active');
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      if (navLinks.classList.contains('show')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
+    // Cerrar menú al hacer clic en un enlace
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         if (navLinks.classList.contains('show')) {
-          navLinks.classList.remove('show');
-          menuToggle.classList.remove('active');
-          menuToggle.setAttribute('aria-expanded', 'false');
+          closeMenu();
         }
       });
     });
