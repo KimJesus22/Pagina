@@ -107,10 +107,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const repos = await response.json();
 
       const excludedRepos = ['KimJesus22', 'Pagina'];
+      const filteredRepos = repos.filter(repo => !repo.fork && !excludedRepos.includes(repo.name));
 
-      repos
-        .filter(repo => !repo.fork && !excludedRepos.includes(repo.name))
-        .forEach(repo => {
+      if (filteredRepos.length === 0) {
+        loadingMessage.textContent = 'No hay otros proyectos públicos en GitHub en este momento.';
+      } else {
+        filteredRepos.forEach(repo => {
           const projectCard = document.createElement('article');
           projectCard.className = 'card project';
           projectCard.setAttribute('data-aos', 'fade-up');
@@ -141,17 +143,18 @@ document.addEventListener('DOMContentLoaded', () => {
           // Añadir la nueva tarjeta a la grilla existente
           projectsGrid.appendChild(projectCard);
         });
-
-    } catch (error) {
-      console.error('Error al cargar los proyectos:', error);
-      loadingMessage.textContent = 'No se pudieron cargar los proyectos de GitHub.';
-    } finally {
-      // Quitar el mensaje de carga, tanto si tuvo éxito como si falló
-      const loader = document.getElementById('loading-projects');
-      if(loader) {
-          // Se le da un pequeño delay para que no desaparezca tan bruscamente
-          setTimeout(() => loader.remove(), 500);
+        // Una vez que los proyectos se han añadido, podemos eliminar el mensaje de carga.
+        loadingMessage.remove();
       }
+
+    } catch (error) { 
+      console.error('Error al cargar los proyectos:', error);
+      // Proporcionar un mensaje de error más útil al usuario
+      loadingMessage.textContent = 'Error al cargar proyectos. Inténtalo de nuevo más tarde.';
+      loadingMessage.style.color = 'var(--accent-color)'; // Usar un color de acento para el error
+    } finally {
+      // El bloque finally ya no es necesario para quitar el loader,
+      // se maneja en los bloques try/catch para mayor control.
     }
   };
 
