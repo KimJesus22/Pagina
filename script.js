@@ -6,16 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', () => {
-      // Alterna las clases para mostrar/ocultar el menú y animar el botón
       navLinks.classList.toggle('show');
       menuToggle.classList.toggle('active');
-
-      // MEJORA: Actualiza el atributo ARIA para accesibilidad
       const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
       menuToggle.setAttribute('aria-expanded', !isExpanded);
     });
 
-    // MEJORA: Cierra el menú al hacer clic en un enlace (mejora la UX en móviles)
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         if (navLinks.classList.contains('show')) {
@@ -30,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Inicialización de la librería Animate On Scroll (AOS) ---
   if (typeof AOS !== 'undefined') {
     AOS.init({
-      duration: 1000, // Duración de la animación
-      once: true,     // La animación solo ocurre una vez
-      offset: 50      // Activa la animación un poco antes de que el elemento sea visible
+      duration: 1000,
+      once: true,
+      offset: 50
     });
   }
 
@@ -57,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggle.addEventListener('click', () => {
       const currentTheme = htmlElement.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
       htmlElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
     });
@@ -68,13 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Carga dinámica de proyectos desde la API de GitHub ---
   const fetchGitHubProjects = async () => {
     const projectsGrid = document.getElementById('projects-grid');
-    const username = 'KimJesus22'; // Tu nombre de usuario de GitHub
-    const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&direction=desc`;
-
     if (!projectsGrid) return;
 
-    // Mensaje de carga
-    projectsGrid.innerHTML = '<p>Cargando proyectos desde GitHub...</p>';
+    const username = 'KimJesus22';
+    const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&direction=desc`;
+
+    // Crear y añadir un mensaje de carga temporal
+    const loadingMessage = document.createElement('p');
+    loadingMessage.id = 'loading-projects';
+    loadingMessage.textContent = 'Cargando más proyectos desde GitHub...';
+    projectsGrid.insertAdjacentElement('afterend', loadingMessage);
 
     try {
       const response = await fetch(apiUrl);
@@ -83,19 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       const repos = await response.json();
 
-      // Limpiar el mensaje de carga
-      projectsGrid.innerHTML = '';
-
-      // Repositorios a excluir (puedes añadir más nombres aquí)
       const excludedRepos = ['KimJesus22', 'Pagina'];
 
       repos
-        .filter(repo => !repo.fork && !excludedRepos.includes(repo.name)) // Filtra forks y repositorios excluidos
+        .filter(repo => !repo.fork && !excludedRepos.includes(repo.name))
         .forEach(repo => {
           const projectCard = document.createElement('article');
           projectCard.className = 'card project';
-
-          // Añadir animación AOS
           projectCard.setAttribute('data-aos', 'fade-up');
 
           let tagsHTML = '';
@@ -121,15 +113,22 @@ document.addEventListener('DOMContentLoaded', () => {
               ${buttonsHTML}
             </div>
           `;
+          // Añadir la nueva tarjeta a la grilla existente
           projectsGrid.appendChild(projectCard);
         });
 
     } catch (error) {
       console.error('Error al cargar los proyectos:', error);
-      projectsGrid.innerHTML = '<p>No se pudieron cargar los proyectos. Inténtalo de nuevo más tarde.</p>';
+      loadingMessage.textContent = 'No se pudieron cargar los proyectos de GitHub.';
+    } finally {
+      // Quitar el mensaje de carga, tanto si tuvo éxito como si falló
+      const loader = document.getElementById('loading-projects');
+      if(loader) {
+          // Se le da un pequeño delay para que no desaparezca tan bruscamente
+          setTimeout(() => loader.remove(), 500);
+      }
     }
   };
 
   fetchGitHubProjects();
 });
-
